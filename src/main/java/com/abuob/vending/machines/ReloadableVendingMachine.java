@@ -1,4 +1,4 @@
-package com.abuob.vending;
+package com.abuob.vending.machines;
 
 import com.abuob.vending.product.Item;
 

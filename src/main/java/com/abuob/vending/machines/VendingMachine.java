@@ -1,4 +1,9 @@
-package com.abuob.vending;
+package com.abuob.vending.machines;
+
+import com.abuob.vending.product.Item;
+
+import java.util.List;
+import java.util.Map;
 
 public interface VendingMachine {
     /**
@@ -19,4 +24,18 @@ public interface VendingMachine {
      * and Quarters will be added.
      */
     void addUserMoney(Integer cents);
+
+    /**
+     * Access a read-only copy of the Items position in this VendingMachine
+     *
+     * @return the list items in this VendingMachine
+     */
+    List<Item> getPositionList();
+
+    /**
+     * Access a read-only copy of a Map of Items and their current quantity in this VendingMachine
+     *
+     * @return the Map containing the inventory in this VendingMachine
+     */
+    Map<Item, Integer> getInventoryMap();
 }

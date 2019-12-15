@@ -1,4 +1,4 @@
-package com.abuob.vending;
+package com.abuob.vending.functions;
 
 /**
  * This interface is intended to abstract the interaction with the vending machine's user interface.
