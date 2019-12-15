@@ -1,6 +1,6 @@
 package com.abuob.vending.impl;
 
-import com.abuob.vending.ReloadableVendingMachine;
+import com.abuob.vending.VendingMachine;
 import com.abuob.vending.VendingMachineHardwareFunctions;
 import com.abuob.vending.product.Item;
 
@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class VendingMachineImpl implements ReloadableVendingMachine {
+public class VendingMachineImpl implements VendingMachine {
 
-    private VendingMachineHardwareFunctions vendingMachineHardwareFunctions;
+    protected VendingMachineHardwareFunctions vendingMachineHardwareFunctions;
     private Integer currentBalance = 0;
 
-    private List<Item> positionList = new ArrayList<>();
-    private Map<Item, Integer> inventoryMap = new HashMap<>();
+    protected List<Item> positionList = new ArrayList<>();
+    protected Map<Item, Integer> inventoryMap = new HashMap<>();
 
     public VendingMachineImpl(VendingMachineHardwareFunctions vendingMachineHardwareFunctions) {
         this.vendingMachineHardwareFunctions = vendingMachineHardwareFunctions;
@@ -58,22 +58,6 @@ public class VendingMachineImpl implements ReloadableVendingMachine {
     @Override
     public void addUserMoney(Integer cents) {
         currentBalance = currentBalance + cents;
-    }
-
-    @Override
-    public Boolean addItemWithQuantity(Item item, Integer quantity) {
-        Integer totalQuantity = quantity;
-        //Check for any existing items in the inventory
-        if (inventoryMap.containsKey(item)) {
-            totalQuantity = totalQuantity + inventoryMap.get(item);
-        } else {
-            //Add the new item to the available options
-            positionList.add(item);
-        }
-        //Update the inventory
-        inventoryMap.put(item, totalQuantity);
-        vendingMachineHardwareFunctions.showMessage(String.format("Added quantity %s of %s item(s)", totalQuantity, item.getProductName()));
-        return true;
     }
 
     public List<Item> getPositionList() {
