@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractVendingMachine {
+abstract class AbstractVendingMachine {
 
     protected VendingMachineHardwareFunctions vendingMachineHardwareFunctions;
     private Integer currentBalance = 0;
