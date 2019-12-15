@@ -1,6 +1,6 @@
 package com.abuob.vending.impl;
 
-import com.abuob.vending.VendingMachine;
+import com.abuob.vending.ReloadableVendingMachine;
 import com.abuob.vending.VendingMachineHardwareFunctions;
 import com.abuob.vending.product.Item;
 
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class VendingMachineImpl implements VendingMachine {
+public class VendingMachineImpl implements ReloadableVendingMachine {
 
     private VendingMachineHardwareFunctions vendingMachineHardwareFunctions;
     private Integer currentBalance = 0;
@@ -61,7 +61,7 @@ public class VendingMachineImpl implements VendingMachine {
     }
 
     @Override
-    public void addItemWithQuantity(Item item, Integer quantity) {
+    public Boolean addItemWithQuantity(Item item, Integer quantity) {
         Integer totalQuantity = quantity;
         //Check for any existing items in the inventory
         if (inventoryMap.containsKey(item)) {
@@ -73,13 +73,16 @@ public class VendingMachineImpl implements VendingMachine {
         //Update the inventory
         inventoryMap.put(item, totalQuantity);
         vendingMachineHardwareFunctions.showMessage(String.format("Added quantity %s of %s item(s)", totalQuantity, item.getProductName()));
+        return true;
     }
 
     public List<Item> getPositionList() {
+        //Copy of positions for client
         return new ArrayList<>(positionList);
     }
 
     public Map<Item, Integer> getInventoryMap() {
+        //Copy of inventory for client
         return new HashMap<>(inventoryMap);
     }
 }

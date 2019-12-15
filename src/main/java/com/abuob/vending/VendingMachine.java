@@ -1,7 +1,5 @@
 package com.abuob.vending;
 
-import com.abuob.vending.product.Item;
-
 public interface VendingMachine {
     /**
      * User Function - This is called when a user presses a button for a
@@ -21,12 +19,4 @@ public interface VendingMachine {
      * and Quarters will be added.
      */
     void addUserMoney(Integer cents);
-
-    /**
-     * User Function - This is called when the user adds an item of an indicated quantity.
-     * <p>
-     * Note: Only one coin will be added at a time. Only Nickels, Dimes,
-     * and Quarters will be added.
-     */
-    void addItemWithQuantity(Item item, Integer quantity);
 }
