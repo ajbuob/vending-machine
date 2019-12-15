@@ -13,12 +13,10 @@ public final class VendingMachineFactory {
     }
 
     public static VendingMachine createVendingMachine(Boolean isReloadable, VendingMachineHardwareFunctions vendingMachineHardwareFunctions) {
-        if (isReloadable) {
-            return !Objects.isNull(vendingMachineHardwareFunctions) ?
-                    new ReloadableVendingMachineImpl(vendingMachineHardwareFunctions) : null;
-        } else {
-            return !Objects.isNull(vendingMachineHardwareFunctions) ?
-                    new VendingMachineImpl(vendingMachineHardwareFunctions) : null;
+        if(Objects.isNull(isReloadable) || Objects.isNull(vendingMachineHardwareFunctions)) {
+            return null;
         }
+        return isReloadable ? new ReloadableVendingMachineImpl(vendingMachineHardwareFunctions) :
+                new VendingMachineImpl(vendingMachineHardwareFunctions);
     }
 }

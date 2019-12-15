@@ -11,8 +11,8 @@ public class VendingMachineFactoryTest {
 
     @Test
     public void createVendingMachine_nullInput() {
-        assertThat(VendingMachineFactory.createVendingMachine(true,null)).isNull();
-        assertThat(VendingMachineFactory.createVendingMachine(false,null)).isNull();
+        assertThat(VendingMachineFactory.createVendingMachine(true, null)).isNull();
+        assertThat(VendingMachineFactory.createVendingMachine(false, null)).isNull();
     }
 
     @Test
