@@ -2,6 +2,7 @@ package com.abuob.vending.factory;
 
 import com.abuob.vending.impl.DefaultVendingMachineHardwareFunctions;
 import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VendingMachineFactoryTest {
