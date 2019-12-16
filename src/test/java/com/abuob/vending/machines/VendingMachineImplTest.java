@@ -38,14 +38,14 @@ public class VendingMachineImplTest {
         verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
 
         //Verify contents
-        assertThat(vendingMachine.getPositionList().size()).isEqualTo(1);
+        assertThat(vendingMachine.getPositionList()).hasSize(1);
         Item returnedItem = vendingMachine.getPositionList().get(0);
 
         assertThat(returnedItem.getProductName()).isEqualTo(item1.getProductName());
         assertThat(returnedItem.getPriceInCents()).isEqualTo(item1.getPriceInCents());
 
         Map<Item, Integer> contentsMap = vendingMachine.getInventoryMap();
-        assertThat(contentsMap.size()).isEqualTo(1);
+        assertThat(contentsMap).hasSize(1);
 
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, never()).dispenseChange(anyInt());
@@ -67,14 +67,14 @@ public class VendingMachineImplTest {
         verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
 
         //Verify contents
-        assertThat(vendingMachine.getPositionList().size()).isEqualTo(1);
+        assertThat(vendingMachine.getPositionList()).hasSize(1);
         Item returnedItem = vendingMachine.getPositionList().get(0);
 
         assertThat(returnedItem.getProductName()).isEqualTo(item1.getProductName());
         assertThat(returnedItem.getPriceInCents()).isEqualTo(item1.getPriceInCents());
 
         Map<Item, Integer> contentsMap = vendingMachine.getInventoryMap();
-        assertThat(contentsMap.size()).isEqualTo(1);
+        assertThat(contentsMap).hasSize(1);
         assertThat(contentsMap.get(item1)).isEqualTo(1);
 
         //Verify method invocations
@@ -97,14 +97,14 @@ public class VendingMachineImplTest {
         vendingMachine.buttonPress(1);
 
         //Verify contents
-        assertThat(vendingMachine.getPositionList().size()).isEqualTo(1);
+        assertThat(vendingMachine.getPositionList()).hasSize(1);
         Item returnedItem = vendingMachine.getPositionList().get(0);
 
         assertThat(returnedItem.getProductName()).isEqualTo(item1.getProductName());
         assertThat(returnedItem.getPriceInCents()).isEqualTo(item1.getPriceInCents());
 
         Map<Item, Integer> contentsMap = vendingMachine.getInventoryMap();
-        assertThat(contentsMap.size()).isEqualTo(1);
+        assertThat(contentsMap).hasSize(1);
         assertThat(contentsMap.get(item1)).isEqualTo(0);
 
         //Verify method invocations
@@ -127,14 +127,14 @@ public class VendingMachineImplTest {
         vendingMachine.buttonPress(1);
 
         //Verify contents
-        assertThat(vendingMachine.getPositionList().size()).isEqualTo(1);
+        assertThat(vendingMachine.getPositionList()).hasSize(1);
         Item returnedItem = vendingMachine.getPositionList().get(0);
 
         assertThat(returnedItem.getProductName()).isEqualTo(item1.getProductName());
         assertThat(returnedItem.getPriceInCents()).isEqualTo(item1.getPriceInCents());
 
         Map<Item, Integer> contentsMap = vendingMachine.getInventoryMap();
-        assertThat(contentsMap.size()).isEqualTo(1);
+        assertThat(contentsMap).hasSize(1);
         assertThat(contentsMap.get(item1)).isEqualTo(0);
 
         //Verify method invocations
@@ -158,7 +158,7 @@ public class VendingMachineImplTest {
         vendingMachine.buttonPress(1);
 
         //Verify contents
-        assertThat(vendingMachine.getPositionList().size()).isEqualTo(2);
+        assertThat(vendingMachine.getPositionList()).hasSize(2);
         Item returnedItem1 = vendingMachine.getPositionList().get(0);
         Item returnedItem2 = vendingMachine.getPositionList().get(1);
 
@@ -169,7 +169,7 @@ public class VendingMachineImplTest {
         assertThat(returnedItem2.getPriceInCents()).isEqualTo(item2.getPriceInCents());
 
         Map<Item, Integer> contentsMap = vendingMachine.getInventoryMap();
-        assertThat(contentsMap.size()).isEqualTo(2);
+        assertThat(contentsMap).hasSize(2);
         assertThat(contentsMap.get(item1)).isEqualTo(0);
         assertThat(contentsMap.get(item2)).isEqualTo(1);
 
