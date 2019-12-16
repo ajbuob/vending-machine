@@ -51,6 +51,7 @@ public class VendingMachineImplTest {
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, never()).dispenseChange(anyInt());
         verify(vendingMachineHardwareFunctions, never()).dispenseProduct(anyInt(), anyString());
+        verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
     }
 
     @Test
@@ -81,6 +82,7 @@ public class VendingMachineImplTest {
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, never()).dispenseChange(anyInt());
         verify(vendingMachineHardwareFunctions, never()).dispenseProduct(anyInt(), anyString());
+        verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
     }
 
     @Test
@@ -111,6 +113,7 @@ public class VendingMachineImplTest {
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, never()).dispenseChange(anyInt());
         verify(vendingMachineHardwareFunctions, times(1)).dispenseProduct(anyInt(), anyString());
+        verify(vendingMachineHardwareFunctions, times(1)).showMessage(anyString());
     }
 
     @Test
@@ -141,6 +144,7 @@ public class VendingMachineImplTest {
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, times(1)).dispenseChange(anyInt());
         verify(vendingMachineHardwareFunctions, times(1)).dispenseProduct(anyInt(), anyString());
+        verify(vendingMachineHardwareFunctions, times(1)).showMessage(anyString());
     }
 
     @Test
@@ -177,5 +181,6 @@ public class VendingMachineImplTest {
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, times(1)).dispenseChange(anyInt());
         verify(vendingMachineHardwareFunctions, times(1)).dispenseProduct(anyInt(), anyString());
+        verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
     }
 }
