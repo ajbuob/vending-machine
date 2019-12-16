@@ -34,4 +34,13 @@ public class Item {
     public int hashCode() {
         return Objects.hash(productName, priceInCents);
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Item{");
+        sb.append("productName='").append(productName).append('\'');
+        sb.append(", priceInCents=").append(priceInCents);
+        sb.append('}');
+        return sb.toString();
+    }
 }
