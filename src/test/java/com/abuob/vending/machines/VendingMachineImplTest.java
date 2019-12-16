@@ -46,6 +46,7 @@ public class VendingMachineImplTest {
 
         Map<Item, Integer> contentsMap = vendingMachine.getInventoryMap();
         assertThat(contentsMap).hasSize(1);
+        assertThat(contentsMap.get(item1)).isEqualTo(1);
 
         //Verify method invocations
         verify(vendingMachineHardwareFunctions, never()).dispenseChange(anyInt());
