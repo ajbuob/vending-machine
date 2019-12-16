@@ -27,7 +27,7 @@ public class VendingMachineImplTest {
     }
 
     @Test
-    public void test_buttonPress_NoMoneyAdded() {
+    public void buttonPress_NoMoneyAdded() {
         LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
         initialCapacityMap.put(item1, 1);
         vendingMachine = new VendingMachineImpl(vendingMachineHardwareFunctions, initialCapacityMap);
@@ -55,7 +55,7 @@ public class VendingMachineImplTest {
     }
 
     @Test
-    public void test_buttonPress_notEnoughMoney() {
+    public void buttonPress_notEnoughMoney() {
         LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
         initialCapacityMap.put(item1, 1);
         vendingMachine = new VendingMachineImpl(vendingMachineHardwareFunctions, initialCapacityMap);
@@ -86,7 +86,7 @@ public class VendingMachineImplTest {
     }
 
     @Test
-    public void test_buttonPress_WithMoneyExactChange() {
+    public void buttonPress_WithMoneyExactChange() {
         LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
         initialCapacityMap.put(item1, 1);
         vendingMachine = new VendingMachineImpl(vendingMachineHardwareFunctions, initialCapacityMap);
@@ -117,7 +117,7 @@ public class VendingMachineImplTest {
     }
 
     @Test
-    public void test_buttonPress_WithMoneyChangeGiven() {
+    public void buttonPress_WithMoneyChangeGiven() {
         LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
         initialCapacityMap.put(item1, 1);
         vendingMachine = new VendingMachineImpl(vendingMachineHardwareFunctions, initialCapacityMap);
@@ -148,7 +148,7 @@ public class VendingMachineImplTest {
     }
 
     @Test
-    public void test_buttonPress_WithMoneyChangeGiven_MultipleProducts() {
+    public void buttonPress_WithMoneyChangeGiven_MultipleProducts() {
         LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
         initialCapacityMap.put(item1, 1);
         initialCapacityMap.put(item2, 1);

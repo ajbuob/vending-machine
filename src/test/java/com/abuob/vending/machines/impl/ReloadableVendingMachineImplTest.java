@@ -37,7 +37,7 @@ public class ReloadableVendingMachineImplTest {
     }
 
     @Test
-    public void test_addItemWithQuantity_existingProduct() {
+    public void addItemWithQuantity_existingProduct() {
         Boolean isItemAddedResult;
 
         //Initial add
@@ -80,7 +80,7 @@ public class ReloadableVendingMachineImplTest {
     }
 
     @Test
-    public void test_addItemWithQuantity_newProduct() {
+    public void addItemWithQuantity_newProduct() {
         Boolean isItemAddedResult;
 
         //Initial add
