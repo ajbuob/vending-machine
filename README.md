@@ -13,5 +13,6 @@ All test cases are located in src/test/java and can be run using the standard ma
 * `VendingMachine` and `ReloadableVendingMachine` interfaces used to support concrete `VendingMachineImpl` and `ReloadableVendingMachineImpl` implementations.
 * `AbstractVendingMachine` contains base implementation and can be extended to create vending machines with more specific functionalities as desired.
 * `VendingMachineFactory` used to create concrete implementations defined by an interface type.
+* `AdminAuthenticator` has the implementation `InMemoryAdminAuthenticator` used in `ReloadableVendingMachineImpl` to determine if admin user can add product to the vending machine.
 
 
