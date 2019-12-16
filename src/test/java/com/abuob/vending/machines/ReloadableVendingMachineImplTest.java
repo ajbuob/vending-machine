@@ -30,16 +30,20 @@ public class ReloadableVendingMachineImplTest {
 
     @Test
     public void test_addItemWithQuantity_existingProduct() {
+        Boolean isItemAddedResult;
 
         //Initial add
-        reloadableVendingMachine.addItemWithQuantity(item1, 1);
-        reloadableVendingMachine.addItemWithQuantity(item2, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item1, 1);
+        assertThat(isItemAddedResult).isTrue();
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item2, 1);
+        assertThat(isItemAddedResult).isTrue();
 
         verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(2);
 
         //Add exiting product
-        reloadableVendingMachine.addItemWithQuantity(item3, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item3, 1);
+        assertThat(isItemAddedResult).isTrue();
 
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(2);
         verify(vendingMachineHardwareFunctions, times(3)).showMessage(anyString());
@@ -69,16 +73,20 @@ public class ReloadableVendingMachineImplTest {
 
     @Test
     public void test_addItemWithQuantity_newProduct() {
+        Boolean isItemAddedResult;
 
         //Initial add
-        reloadableVendingMachine.addItemWithQuantity(item1, 1);
-        reloadableVendingMachine.addItemWithQuantity(item2, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item1, 1);
+        assertThat(isItemAddedResult).isTrue();
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item2, 1);
+        assertThat(isItemAddedResult).isTrue();
 
         verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(2);
 
         //Add exiting product
-        reloadableVendingMachine.addItemWithQuantity(item4, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item4, 1);
+        assertThat(isItemAddedResult).isTrue();
 
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(3);
         verify(vendingMachineHardwareFunctions, times(3)).showMessage(anyString());
