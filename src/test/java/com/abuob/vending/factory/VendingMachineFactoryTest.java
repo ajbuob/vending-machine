@@ -6,14 +6,13 @@ import com.abuob.vending.machines.impl.VendingMachineImpl;
 import com.abuob.vending.product.Item;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VendingMachineFactoryTest {
 
-    private Map<Item, Integer> initialCapacityMap = new HashMap<>();
+    private LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
 
     @Test
     public void createVendingMachine_nullInput() {

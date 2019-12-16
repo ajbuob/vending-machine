@@ -1,14 +1,14 @@
 package com.abuob.vending.machines.impl;
 
 import com.abuob.vending.functions.VendingMachineHardwareFunctions;
-import com.abuob.vending.product.Item;
 import com.abuob.vending.machines.ReloadableVendingMachine;
+import com.abuob.vending.product.Item;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class ReloadableVendingMachineImpl extends VendingMachineImpl implements ReloadableVendingMachine {
 
-    public ReloadableVendingMachineImpl(VendingMachineHardwareFunctions vendingMachineHardwareFunctions, Map<Item, Integer> initialCapacityMap) {
+    public ReloadableVendingMachineImpl(VendingMachineHardwareFunctions vendingMachineHardwareFunctions, LinkedHashMap<Item, Integer> initialCapacityMap) {
         super(vendingMachineHardwareFunctions, initialCapacityMap);
     }
 
