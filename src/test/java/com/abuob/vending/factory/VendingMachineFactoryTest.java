@@ -16,18 +16,29 @@ public class VendingMachineFactoryTest {
 
     @Test
     public void createVendingMachine_nullInput() {
-        assertThat(VendingMachineFactory.createVendingMachine(true, null, initialCapacityMap))
+        assertThat(VendingMachineFactory.createVendingMachine(null, initialCapacityMap))
                 .isNull();
-        assertThat(VendingMachineFactory.createVendingMachine(false, null, initialCapacityMap))
+        assertThat(VendingMachineFactory.createVendingMachine(new DefaultVendingMachineHardwareFunctions(), null))
+                .isNull();
+    }
+
+    @Test
+    public void createReloadableVendingMachine_nullInput() {
+        assertThat(VendingMachineFactory.createReloadableVendingMachine(null, initialCapacityMap))
+                .isNull();
+        assertThat(VendingMachineFactory.createReloadableVendingMachine(new DefaultVendingMachineHardwareFunctions(), null))
                 .isNull();
     }
 
     @Test
     public void createVendingMachine_success() {
-        assertThat(VendingMachineFactory.createVendingMachine(false, new DefaultVendingMachineHardwareFunctions(), initialCapacityMap))
+        assertThat(VendingMachineFactory.createVendingMachine(new DefaultVendingMachineHardwareFunctions(), initialCapacityMap))
                 .isNotNull().isInstanceOf(VendingMachineImpl.class);
+    }
 
-        assertThat(VendingMachineFactory.createVendingMachine(true, new DefaultVendingMachineHardwareFunctions(), initialCapacityMap))
+    @Test
+    public void createReloadableVendingMachine_success() {
+        assertThat(VendingMachineFactory.createReloadableVendingMachine(new DefaultVendingMachineHardwareFunctions(), initialCapacityMap))
                 .isNotNull().isInstanceOf(ReloadableVendingMachineImpl.class);
     }
 }
