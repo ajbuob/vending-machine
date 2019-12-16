@@ -66,7 +66,7 @@ abstract class AbstractVendingMachine {
         //NOTE:The underlying linked list defines the iteration ordering, so a re-insert doesn't effect the order
         inventoryMap.put(item, totalQuantity);
         vendingMachineHardwareFunctions.showMessage(String.format("Added quantity %s of %s item(s)", quantity, item.getProductName()));
-        return true;
+        return Boolean.TRUE;
     }
 
     public List<Item> getPositionList() {

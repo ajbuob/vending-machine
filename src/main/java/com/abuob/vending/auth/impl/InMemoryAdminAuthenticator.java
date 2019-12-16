@@ -17,7 +17,7 @@ public class InMemoryAdminAuthenticator implements AdminAuthenticator {
     @Override
     public Boolean isValid(String username, String password) {
         if (Objects.isNull(username) || Objects.isNull(password)) {
-            return false;
+            return Boolean.FALSE;
         }
         return usernamePasswordMap.containsKey(username) && usernamePasswordMap.get(username).equals(password);
     }
