@@ -21,12 +21,12 @@ public class ItemTest {
     }
 
     @Test
-    public void test_equals_null() {
+    public void equals_null() {
         assertThat(item1.equals(null)).isFalse();
     }
 
     @Test
-    public void test_equals_true() {
+    public void equals_true() {
         assertThat(item1.equals(item1)).isTrue();
         assertThat(item2.equals(item2)).isTrue();
         assertThat(item3.equals(item3)).isTrue();
@@ -36,7 +36,7 @@ public class ItemTest {
     }
 
     @Test
-    public void test_equals_false() {
+    public void equals_false() {
         assertThat(item1.equals(item2)).isFalse();
         assertThat(item2.equals(item3)).isFalse();
         assertThat(item3.equals(item4)).isFalse();
@@ -47,7 +47,7 @@ public class ItemTest {
     }
 
     @Test
-    public void test_hashCode_true() {
+    public void hashCode_true() {
         assertThat(item1.hashCode()).isEqualTo(item1.hashCode());
         assertThat(item2.hashCode()).isEqualTo(item2.hashCode());
         assertThat(item3.hashCode()).isEqualTo(item3.hashCode());
@@ -58,7 +58,7 @@ public class ItemTest {
     }
 
     @Test
-    public void test_hashCode_false() {
+    public void hashCode_false() {
         assertThat(item1.hashCode()).isNotEqualTo(item2.hashCode());
         assertThat(item2.hashCode()).isNotEqualTo(item3.hashCode());
         assertThat(item3.hashCode()).isNotEqualTo(item4.hashCode());
