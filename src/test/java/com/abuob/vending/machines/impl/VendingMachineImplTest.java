@@ -1,7 +1,7 @@
-package com.abuob.vending.machines;
+package com.abuob.vending.machines.impl;
 
 import com.abuob.vending.functions.VendingMachineHardwareFunctions;
-import com.abuob.vending.machines.impl.VendingMachineImpl;
+import com.abuob.vending.machines.VendingMachine;
 import com.abuob.vending.product.Item;
 import org.junit.Before;
 import org.junit.Test;

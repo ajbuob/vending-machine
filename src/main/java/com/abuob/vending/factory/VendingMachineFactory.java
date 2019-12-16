@@ -1,5 +1,6 @@
 package com.abuob.vending.factory;
 
+import com.abuob.vending.auth.AdminAuthenticator;
 import com.abuob.vending.functions.VendingMachineHardwareFunctions;
 import com.abuob.vending.machines.ReloadableVendingMachine;
 import com.abuob.vending.machines.VendingMachine;
@@ -17,17 +18,20 @@ public final class VendingMachineFactory {
 
     public static VendingMachine createVendingMachine(VendingMachineHardwareFunctions vendingMachineHardwareFunctions,
                                                       LinkedHashMap<Item, Integer> initialCapacity) {
-        if (Objects.isNull(vendingMachineHardwareFunctions) || Objects.isNull(initialCapacity)) {
+        if (Objects.isNull(vendingMachineHardwareFunctions) ||
+                Objects.isNull(initialCapacity)) {
             return null;
         }
         return new VendingMachineImpl(vendingMachineHardwareFunctions, initialCapacity);
     }
 
     public static ReloadableVendingMachine createReloadableVendingMachine(VendingMachineHardwareFunctions vendingMachineHardwareFunctions,
-                                                                          LinkedHashMap<Item, Integer> initialCapacity) {
-        if (Objects.isNull(vendingMachineHardwareFunctions) || Objects.isNull(initialCapacity)) {
+                                                                          LinkedHashMap<Item, Integer> initialCapacity,
+                                                                          AdminAuthenticator adminAuthenticator) {
+        if (Objects.isNull(vendingMachineHardwareFunctions) ||
+                Objects.isNull(initialCapacity) || Objects.isNull(adminAuthenticator)) {
             return null;
         }
-        return new ReloadableVendingMachineImpl(vendingMachineHardwareFunctions, initialCapacity);
+        return new ReloadableVendingMachineImpl(vendingMachineHardwareFunctions, initialCapacity, adminAuthenticator);
     }
 }

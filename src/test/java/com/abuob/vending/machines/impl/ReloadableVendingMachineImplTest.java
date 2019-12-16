@@ -1,7 +1,8 @@
-package com.abuob.vending.machines;
+package com.abuob.vending.machines.impl;
 
+import com.abuob.vending.auth.AdminAuthenticator;
 import com.abuob.vending.functions.VendingMachineHardwareFunctions;
-import com.abuob.vending.machines.impl.ReloadableVendingMachineImpl;
+import com.abuob.vending.machines.ReloadableVendingMachine;
 import com.abuob.vending.product.Item;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +14,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 public class ReloadableVendingMachineImplTest {
+    private final String USERNAME = "username";
+    private final String PASSWORD = "password123";
 
     private ReloadableVendingMachine reloadableVendingMachine;
     private VendingMachineHardwareFunctions vendingMachineHardwareFunctions = mock(VendingMachineHardwareFunctions.class);
+    private AdminAuthenticator adminAuthenticator = mock(AdminAuthenticator.class);
 
     private Item item1 = new Item("product1", 35);
     private Item item2 = new Item("product2", 20);
@@ -24,8 +28,12 @@ public class ReloadableVendingMachineImplTest {
 
     @Before
     public void setup() {
+        when(adminAuthenticator.isValid(anyString(), anyString())).thenReturn(Boolean.TRUE);
+
         LinkedHashMap<Item, Integer> initialCapacityMap = new LinkedHashMap<>();
-        reloadableVendingMachine = new ReloadableVendingMachineImpl(vendingMachineHardwareFunctions, initialCapacityMap);
+        reloadableVendingMachine = new ReloadableVendingMachineImpl(vendingMachineHardwareFunctions,
+                initialCapacityMap,
+                adminAuthenticator);
     }
 
     @Test
@@ -33,16 +41,16 @@ public class ReloadableVendingMachineImplTest {
         Boolean isItemAddedResult;
 
         //Initial add
-        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item1, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item1, 1, USERNAME, PASSWORD);
         assertThat(isItemAddedResult).isTrue();
-        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item2, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item2, 1, USERNAME, PASSWORD);
         assertThat(isItemAddedResult).isTrue();
 
         verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(2);
 
         //Add exiting product
-        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item3, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item3, 1, USERNAME, PASSWORD);
         assertThat(isItemAddedResult).isTrue();
 
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(2);
@@ -76,16 +84,16 @@ public class ReloadableVendingMachineImplTest {
         Boolean isItemAddedResult;
 
         //Initial add
-        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item1, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item1, 1, USERNAME, PASSWORD);
         assertThat(isItemAddedResult).isTrue();
-        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item2, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item2, 1, USERNAME, PASSWORD);
         assertThat(isItemAddedResult).isTrue();
 
         verify(vendingMachineHardwareFunctions, times(2)).showMessage(anyString());
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(2);
 
         //Add exiting product
-        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item4, 1);
+        isItemAddedResult = reloadableVendingMachine.addItemWithQuantity(item4, 1, USERNAME, PASSWORD);
         assertThat(isItemAddedResult).isTrue();
 
         assertThat(reloadableVendingMachine.getInventoryMap()).hasSize(3);
